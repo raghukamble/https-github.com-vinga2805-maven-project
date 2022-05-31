@@ -6,7 +6,7 @@ pipeline {
 
 
     }
-    
+
     stages {
         stage('Build') {
             steps {
@@ -24,9 +24,11 @@ pipeline {
 
         post {
             success {
+                echo "Archiving the Artifacts"
                 archiveArtifacts artifacts:'**/*.war'
             }
         }
+    }
 
 
     }
