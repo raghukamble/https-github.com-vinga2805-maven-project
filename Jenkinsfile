@@ -5,11 +5,11 @@ pipeline {
         string(name:'prod-tomcat',defaultValue:'13.232.232.14',description:'our prod server')
     }
     triggers {
-        pollSCM(*****)
+        pollSCM('*****')
     }
 
     stages {
-        stage(Build)
+        stage('Build')
             steps {
         echo"Building an Application"
         sh 'mvn compose'
@@ -31,21 +31,7 @@ pipeline {
         }
     }
 
-    stage(Deployment) {
-        steps {
-            echo "Testing Application in Staging Area"
-            sh "scp -i /home/jenkins/india.pem **/target/*.war ec2-user@${params.stage-tomcat}:/var/lib/tomcat9/webapps"
-
-        }
-    }
-
-    stage(Deployment) {
-        steps {
-            echo " Deploying Application to the Production"
-            sh "scp -i /home/jenkins/india.pem **/target/*.war ec2-user@${params.prod-tomcat}:/var/lib/tomcat9/webapps"
-        }
-    }
-
+    
     }
          
 }
