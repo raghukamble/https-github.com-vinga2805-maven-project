@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     triggers {
+        //pollSCM trigger to poll every 2 minutes.
         pollSCM('*/2 * * * *')
 
 
@@ -28,6 +29,14 @@ pipeline {
          }
          
         }
+    stage('Deployment') {
+            steps {
+                echo "Deploying an Application"
+                sh "scp -i /home/ubuntu/pick.pem **/*.war ubuntu@65.1.100.176: /var/lib/tomcat9/webapps/"
+            }
+        }
+
+
     }
 
 
