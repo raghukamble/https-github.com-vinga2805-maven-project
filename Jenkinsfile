@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building an Application"
-                sh 'mvn compose'
+                sh 'mvn compile'
             }
         }
 
