@@ -32,7 +32,7 @@ pipeline {
     stage('Deployment') {
             steps {
                 echo "Deploying an Application"
-                sh "scp -i /var/lib/jenkins/pick.pem **/target/*.war ec2-65-0-129-138.ap-south-1.compute.amazonaws.com:/usr/local/tomcat9/webapps/"
+                sh "scp -i /home/ubuntu/pick.pem **/target/*.war ec2-65-0-129-138.ap-south-1.compute.amazonaws.com:/usr/local/tomcat9/webapps/"
             }
         }
 
