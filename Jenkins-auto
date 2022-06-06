@@ -34,16 +34,18 @@ pipeline {
             success {
                 echo "Archiving the Artifacts"
                 archiveArtifacts artifacts:'**/*.war'
-            }
-         }
-
-        post {
-            always {
                 mail to : "raghukamble.888@gmail.com"
                 subject : "Build Stage Report"
                 body : "Successfully Build Application"
             }
-        } 
+         }
+
+                  
+                
+                
+                
+            
+         
 
 
          
