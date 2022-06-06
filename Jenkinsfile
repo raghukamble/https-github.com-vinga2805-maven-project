@@ -32,7 +32,7 @@ pipeline {
     stage('Deployment') {
             steps {
                 echo "Deploying an Application"
-                sh "scp -i /var/lib/jenkins/pick.pem **/target/*.war tomcat@65.0.129.138:/usr/local/tomcat9/webapps/"
+                sh "scp -i /var/lib/jenkins/pick.pem **/target/*.war ec2-user@65.0.129.138:/usr/local/tomcat9/webapps/"
             }
         }
 
